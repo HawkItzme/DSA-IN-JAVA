@@ -1,4 +1,4 @@
-package com.syed;
+package com.syed.Operation;
 
 import java.util.Scanner;
 
