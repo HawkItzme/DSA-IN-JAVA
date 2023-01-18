@@ -18,7 +18,7 @@ public class Stream {
     }
 }
 
-class Stream2{
+class Stream_2{
     public static void main(String[] args) {
         System.out.println(skip("baccab"));
     }
