@@ -26,3 +26,22 @@ public class SubSet {
 
     }
 }
+
+class LExiSubSet{
+    public static void main(String[] args) {
+        String s = "abc";
+        for(int i = 0; i < s.length(); i++){
+            permute(String.valueOf(s.charAt(i)), s, i, s.length());
+        }
+    }
+    public static void permute(String ch, String s, int index, int n){
+
+        if(index == n){
+            return;
+        }
+        System.out.println(ch);
+        for (int i = index + 1; i < n; i++){
+            permute(ch + s.charAt(i), s, i++, n);
+        }
+    }
+}
