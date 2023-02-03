@@ -1,6 +1,8 @@
 package com.syed.Recursion.subset;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class SubSet {
     public static void main(String[] args) {
@@ -43,5 +45,32 @@ class LExiSubSet{
         for (int i = index + 1; i < n; i++){
             permute(ch + s.charAt(i), s, i++, n);
         }
+    }
+}
+
+class SubSetArray{
+    public static void main(String[] args) {
+
+        int[] nums = {1, 2, 3};
+        System.out.println(subsets(nums));
+    }
+    public static  List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>() ;
+        List<Integer> ds = new ArrayList<>() ;
+        int n = nums.length ;
+
+        solve(0, n, nums, ds, result) ;
+        return result ;
+    }
+    private static void solve(int index, int n, int[] nums, List<Integer> ds, List<List<Integer>> result) {
+        if (index == n) {
+            result.add(new ArrayList<>(ds)) ;
+            return ;
+        }
+
+        ds.add(nums[index]) ;
+        solve(index+1, n, nums, ds, result) ;
+        ds.remove(ds.size()-1) ;
+        solve(index+1, n, nums, ds, result) ;
     }
 }
