@@ -74,3 +74,21 @@ class SubSetArray{
         solve(index+1, n, nums, ds, result) ;
     }
 }
+
+class SubArray{
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 2, 3};
+        subSet(nums, new ArrayList<Integer>(), 0, nums.length);
+    }
+    public static void subSet(int[] nums, ArrayList<Integer> ans, int index, int n){
+        if(index == n){
+            System.out.println(ans);
+            return;
+        }
+        if(index > 0 && nums[index] == nums[index-1]) return;
+        ans.add(nums[index]);
+        subSet(nums, ans, index + 1, n);
+        ans.remove(ans.size() - 1);
+        subSet(nums, ans, index + 1, n);
+    }
+}
