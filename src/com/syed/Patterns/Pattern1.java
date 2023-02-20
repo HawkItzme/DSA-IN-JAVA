@@ -55,3 +55,23 @@ class Pattern4{
         }
     }
 }
+
+//DIAMOND
+class Pattern5{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int maxcol;
+        for (int i = 1; i < 2*n; i++ ){
+            maxcol = (i <= n)? i : ((2*n) - i);
+            int space = n - maxcol;
+            for (int a = 1; a<=space; a++){
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= maxcol; j++){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
