@@ -94,3 +94,23 @@ class Pattern6{
         }
     }
 }
+
+class Pattern7{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        for(int i = 1; i<=2*n; i++){
+            int c = (i > n)? 2*n - i : i;
+            for (int a = 1; a <= n - c; a++) {
+                System.out.print(" ");
+            }
+            for (int col = c; col >= 1; col--) {
+                System.out.print(col);
+            }
+            for (int col = 2; col <= c; col++) {
+                System.out.print(col);
+            }
+            System.out.println();
+        }
+    }
+}
