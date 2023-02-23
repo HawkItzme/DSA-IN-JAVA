@@ -114,3 +114,22 @@ class Pattern7{
         }
     }
 }
+
+class Pattern8 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int p = 2 * n;
+        for (int i = 0; i <= p - 2; i++) {
+            for (int j = 0; j <= p - 2; j++) {
+                int pri = n - Math.min(Math.min(i, j), Math.min(p - 2 - i, p - 2 - j));
+                if (pri > 1) {
+                    System.out.print(pri + " ");
+                }else
+                    System.out.print("1 ");
+
+            }
+            System.out.println(" ");
+        }
+    }
+}
