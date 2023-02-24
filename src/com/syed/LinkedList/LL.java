@@ -57,6 +57,8 @@ public class LL {
         size++;
     }
 
+
+    //Insert using Recursion
     public void insertRec(int val, int index){
         head = insertRec(val, index, head);
     }
