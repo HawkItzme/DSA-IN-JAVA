@@ -181,6 +181,27 @@ public class LL {
         tail.next = null;
     }
 
+    //inplace reversal of LL
+    public void reverse(){
+        if (size < 2){
+            return;
+        }
+
+        Node prev = null;
+        Node present = head;
+        Node next = present.next;
+
+        while(present != null){
+            present.next = prev;
+            prev = present;
+            present = next;
+            if (next != null){
+                next = next.next;
+            }
+        }
+        head = prev;
+    }
+
     //merge
     public static LL merge(LL first, LL second){
         Node f = first.head;
