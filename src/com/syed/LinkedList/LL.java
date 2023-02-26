@@ -305,4 +305,54 @@ public class LL {
             bubblesort(row - 1, 0);
         }
     }
+
+    //Reverse List returned
+    public Node reverseList(Node head) {
+        if (head == null) {
+            return head;
+        }
+        Node prev = null;
+        Node present = head;
+        Node next = present.next;
+
+        while (present != null) {
+            present.next = prev;
+            prev = present;
+            present = next;
+            if (next != null) {
+                next = next.next;
+            }
+        }
+        return prev;
+    }
+
+    public Node middleNode(Node head){
+        Node s = head;
+        Node f = head;
+
+        while(f != null && f.next != null){
+            s = s.next;
+            f = f.next.next;
+        }
+        return s;
+    }
+
+    //Palindrome
+    public boolean isPlaindrome(Node head){
+        Node mid = middleNode(head);
+        Node headSecond = reverseList(mid);
+        Node reverseHead = headSecond;
+
+        //compare both the values
+        while(head != null && headSecond != null){
+            if (head.value != headSecond.value){
+                break;
+            }
+            head = head.next;
+            headSecond = headSecond.next;
+        }
+        reverseList(reverseHead);
+
+        return head == null || headSecond == null;
+    }
 }
