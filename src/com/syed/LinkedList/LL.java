@@ -434,4 +434,41 @@ public class LL {
         }
         return head;
     }
+
+    public Node reversealternateKGroup(Node head, int k){
+        if (k <= 1 || head == null){
+            return head;
+        }
+
+        Node current = head;
+        Node prev = null;
+
+        while (current != null){
+            Node last = prev;
+            Node newEnd = current;
+
+            Node next = current.next;
+            for (int i = 0; current != null && i < k; i++){
+                current.next = prev;
+                prev = current;
+                current = next;
+                if (next != null){
+                    next = next.next;
+                }
+            }
+            if (last != null){
+                last.next = prev;
+            }else {
+                head = prev;
+            }
+
+            newEnd.next = current;
+
+            for (int i=0; current != null && i < k; i++){
+                prev = current;
+                current = current.next;
+            }
+        }
+        return head;
+    }
 }
