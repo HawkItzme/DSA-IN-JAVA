@@ -54,7 +54,7 @@ public class MergeSort {
 
     }
 
-    //Merge inplace
+    //Merge Sort inplace
     static void mergeSortInplace(int[] arr, int s, int e){
         if (e-s == 1){
             return;
@@ -64,7 +64,6 @@ public class MergeSort {
         //here in Arrays.copyOfRange - "to" argument is exclusive
         mergeSortInplace(arr, 0, mid);
         mergeSortInplace(arr, mid, e);
-
         mergeInplace(arr, s, mid, e );
     }
 
@@ -99,6 +98,5 @@ public class MergeSort {
         for(int l = 0; l< mix.length; l++){
             arr[s +l] = mix[l];
         }
-
     }
 }
