@@ -3,7 +3,7 @@ package com.syed.patterns_demo;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-public class Producer_Consumer {
+public class Producer_Consumer_without_using_BlockingQueue {
     public static void main(String[] args) throws InterruptedException {
         BlockingQueue<Item> queue = new ArrayBlockingQueue(10);
 
