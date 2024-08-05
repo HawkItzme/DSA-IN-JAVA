@@ -32,6 +32,22 @@ public class Producer_Consumer_by_implementing_BlockingQueue {
         }
     }
 
+    // Using Wait-Notify instead of Locks & Condition
+
+    private Object nonEmptyObj = new Object();
+    private Object nonFullObj = new Object();
+    public synchronized void putUsingWaitNotify(E e){
+        try {
+            while (queue.size() == max){
+                nonFullObj.wait();
+            }
+            queue.add(e);
+            nonEmptyObj.notifyAll();
+        } catch (InterruptedException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
     public E take( ){
         lock.lock();
         try {
@@ -45,6 +61,20 @@ public class Producer_Consumer_by_implementing_BlockingQueue {
             throw new RuntimeException(ex);
         }finally {
             lock.unlock();
+        }
+    }
+
+    // Using Wait-Notify instead of Locks & Condition
+    public synchronized E take( ){
+        try {
+            while (queue.size() == 0){
+                nonEmptyObj.wait();
+            }
+            E item = queue.remove();
+            nonFullObj.notifyAll();
+            return item;
+        } catch (InterruptedException ex) {
+            throw new RuntimeException(ex);
         }
     }
 }
