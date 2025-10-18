@@ -12,7 +12,7 @@ public class Producer_Consumer_by_implementing_BlockingQueue {
     private Condition nonEmpty = lock.newCondition();
     private Condition nonFull = lock.newCondition();
 
-    public MyBlockingQueue(int size){
+    public void MyBlockingQueue(int size){
         queue = new LinkedList();
         this.max = size;
     }
